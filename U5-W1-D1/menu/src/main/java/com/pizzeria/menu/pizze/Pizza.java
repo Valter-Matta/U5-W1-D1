@@ -1,8 +1,14 @@
 package com.pizzeria.menu.pizze;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
+@AllArgsConstructor
 public class Pizza {
 	private String name;
 	private double price;
@@ -22,10 +28,6 @@ public class Pizza {
 		this.toppings.add(topping);
 		this.price += priceIncrease;
 		this.calories += calIncrease;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	@Override

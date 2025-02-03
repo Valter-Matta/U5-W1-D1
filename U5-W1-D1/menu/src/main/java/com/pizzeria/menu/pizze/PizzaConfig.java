@@ -3,6 +3,7 @@ package com.pizzeria.menu.pizze;
 
 import com.pizzeria.menu.MenuService;
 import com.pizzeria.menu.drink.Drink;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,14 +12,19 @@ import java.util.Arrays;
 @Configuration
 public class PizzaConfig {
 
+	@Autowired
+	private PizzaXL margheritaXL;
+	@Autowired
+	private PizzaXL hawaianaXL;
+
 	@Bean
-	public Pizza margherita() {
+	public Pizza margherita () {
 		Pizza pizza = new Pizza();
 		return pizza;
 	}
 
 	@Bean
-	public Pizza hawaiana() {
+	public Pizza hawaiana () {
 		Pizza pizza = new Pizza();
 		pizza.setName("Hawaiana");
 		pizza.addTopping("Prosciutto", 1.5, 200);
@@ -26,23 +32,23 @@ public class PizzaConfig {
 		return pizza;
 	}
 
-	@Bean
-	public PizzaXL margheritaXL() {
-		return new PizzaXL();
-	}
+
+
+
+
 
 	@Bean
-	public Drink cola() {
+	public Drink cola () {
 		return new Drink("Cola", 2.00, 150);
 	}
 
 	@Bean
-	public Drink beer() {
+	public Drink beer () {
 		return new Drink("Birra", 3.50, 200);
 	}
 
 	@Bean
-	public MenuService menu() {
-		return new MenuService(Arrays.asList(margherita(), hawaiana(), margheritaXL()), Arrays.asList(cola(), beer()));
+	public MenuService menu () {
+		return new MenuService(Arrays.asList(margherita(), hawaiana(), margheritaXL, hawaianaXL), Arrays.asList(cola(), beer()));
 	}
 }

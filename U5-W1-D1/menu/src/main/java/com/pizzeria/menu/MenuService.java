@@ -19,7 +19,7 @@ public class MenuService implements CommandLineRunner {
 		this.drinks = drinks;
 	}
 
-	// Metodo per stampare il menù
+
 	public void printMenu() {
 		System.out.println("--- MENU PIZZERIA ---");
 		System.out.println("PIZZE:");
